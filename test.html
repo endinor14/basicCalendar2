@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+     
+    </script>
+  </head>
+
+  <body>
+	    <script>
+        //var firstDay = new Date(currentYear, currentMonth, 01); // güncel ayın tarih nesnesinde ilk gün değeri
+
+
+			var date = new Date();
+			var gün = date.getDate();
+			var ay = date.getMonth();
+      var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+      var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+      var ilk = firstDay.getDate();
+      var son = lastDay.getDate();
+  
+     document.write(ilk);
+     document.write(son);
+      
+			var monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül",
+              "Ekim", "Kasım", "Aralık"
+          ];
+
+          
+
+			var calendarBody = "<table style=width:70% height:500 align=center border=10px solid black> <tr><th bgcolor= red colspan='7'>" +  monthNames[ay] + "</th></tr>";
+          calendarBody += "<tr align=center bgcolor= #FF0000>  <td>Pazartesi</td> <td>Salı</td> <td>Çarşamba</td> <td>Perşembe</td> <td>Cuma</td> <td>Cumartesi</td> <td>Pazar</td> </tr>";
+          
+
+          while(ilk<=son){
+            if(ilk==gün){
+              calendarBody += " <tr bgcolor= #FF0000><th>" +  ilk + "</th></tr>";
+            }
+            calendarBody += " <tr><th>" +  ilk + "</th></tr>";
+ilk++;
+          }
+          
+         
+
+
+
+          //document.getElementById("calendar").innerHTML = calendarBody;
+document.write(calendarBody);
+     
+    </script>
+  </body>
+  <style></style>
+</html>
+
