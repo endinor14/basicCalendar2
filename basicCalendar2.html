@@ -47,10 +47,7 @@
     while (first <= last) {
       if ((first - 1 + firstDay.getDay()) % 7 == 0) {
         calendarBody +=
-          `${first == day ? "<th bgcolor= #FF0000>" : "<th>"}` +
-          first +
-          "</th>" +
-          "</tr>";
+          first == day ? "<th bgcolor= #FF0000>" : "<th>" + first + "</th>" + "</tr>";
       } else {
         if (first == day) {
           calendarBody += "<th bgcolor= #FF0000>" + first + "</th>";
