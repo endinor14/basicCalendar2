@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script></script>
+</head>
+
+<body>
+  <script>
+    var date = new Date();
+    var day = date.getDate();
+    let query_month = window.location.search && window.location.search.replace(/\?month=/, "");
+    var month = parseInt(query_month) || date.getMonth();
+    var firstDay = new Date(date.getFullYear(), month, 1);
+    var lastDay = new Date(date.getFullYear(), month + 1, 0);
+    var first = firstDay.getDate();
+    var last = lastDay.getDate();
+
+    var monthNames = [
+      "Ocak",
+      "Şubat",
+      "Mart",
+      "Nisan",
+      "Mayıs",
+      "Haziran",
+      "Temmuz",
+      "Ağustos",
+      "Eylül",
+      "Ekim",
+      "Kasım",
+      "Aralık",
+    ];
+
+    var calendarBody =
+      "<table style=width:70% height:500 align=center border=10px solid black> <tr><th bgcolor= red colspan='7'>" +
+      monthNames[month] +
+      "</th></tr>";
+    calendarBody +=
+      "<tr align=center bgcolor= #FF0000>  <td>Pazartesi</td> <td>Salı</td> <td>Çarşamba</td> <td>Perşembe</td> <td>Cuma</td> <td>Cumartesi</td> <td>Pazar</td> </tr>";
+
+    let free_days = firstDay.getDay();
+
+    while ((free_days + 6) % 7 > 0) {
+      calendarBody += "<th></th>";
+      free_days--;
+    }
+    while (first <= last) {
+      if ((first - 1 + firstDay.getDay()) % 7 == 0) {
+        calendarBody +=
+          `${first == day ? "<th bgcolor= #FF0000>" : "<th>"}` +
+          first +
+          "</th>" +
+          "</tr>";
+      } else {
+        if (first == day) {
+          calendarBody += "<th bgcolor= #FF0000>" + first + "</th>";
+        } else {
+          calendarBody += "<th>" + first + "</th>";
+        }
+      }
+
+      first++;
+    }
+
+    document.write(calendarBody);
+  </script>
+</body>
+<style></style>
+
+</html>
