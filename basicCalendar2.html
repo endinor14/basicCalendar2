@@ -9,7 +9,7 @@
   <script>
     var date = new Date();
     var day = date.getDate();
-    let query_month = window.location.search && window.location.search.replace(/\?month=/, "");
+    let query_month = window.location.search
     var month = parseInt(query_month) || date.getMonth();
     var firstDay = new Date(date.getFullYear(), month, 1);
     var lastDay = new Date(date.getFullYear(), month + 1, 0);
@@ -32,11 +32,9 @@
     ];
 
     var calendarBody =
-      "<table style=width:70% height:500 align=center border=10px solid black> <tr><th bgcolor= red colspan='7'>" +
-      monthNames[month] +
-      "</th></tr>";
+      "<table style=width:70% height:500 align=center border=10px solid black> <tr><th bgcolor= red colspan='7'>" + monthNames[month] + "</th></tr>";
     calendarBody +=
-      "<tr align=center bgcolor= #FF0000>  <td>Pazartesi</td> <td>Salı</td> <td>Çarşamba</td> <td>Perşembe</td> <td>Cuma</td> <td>Cumartesi</td> <td>Pazar</td> </tr>";
+      "<tr align=center bgcolor= #FF0000 > <td >Pazartesi</td> <td>Salı</td> <td>Çarşamba</td> <td>Perşembe</td> <td>Cuma</td> <td>Cumartesi</td> <td>Pazar</td> </tr>";
 
     let free_days = firstDay.getDay();
 
